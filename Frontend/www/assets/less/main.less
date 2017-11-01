@@ -1,13 +1,18 @@
 @mainColor: #333;
+@titleColor: #ec6a1c;
+@text-color:grey;
+@bootstrap-orange: #ea862e;
+@grey: lighten(#000,70%);
+@panel-height:90px;
+@large-text:25px;
+@middle-text: (@large-text + @small-text)/2;
+@small-text: 10px;
 
 @import "pizza/pizza-card";
-@import "pizza/mainp";
-@import "pizza/label";
-@import "pizza/top";
-@titleColor: #ec6a1c;
-@someColor: #a1a1a1;
-@heightbottom: 150px;
-@heighttop: 80px;
-@maxrightwidth: 200px;
-@font-weight: 700;
+@import "pizza/top-panel";
+@import "pizza/mainpanel";
+
+body {
+    min-width: 500px;
+}
 
