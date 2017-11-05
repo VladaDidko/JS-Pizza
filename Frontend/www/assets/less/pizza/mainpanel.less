@@ -1,16 +1,37 @@
-.left-panel {
+.mainpanel {
     padding-right: 350px;
-    margin-top: 30px;
+    margin-top: 90px;
     margin-bottom: 100px;
+    margin-left:80px;
     max-width: 1400px;
     text-align: center;
+    
 }
     .pizza-all {
         .pizza-count {
             font-size: @middle-text;
+            background-color: @bootstrap-orange;
         }
     }
-
+.pizza-card{
+    position:relative;
+}
+h4{
+    font-weight: 600; 
+}
+h3{
+    font-weight:700;
+}
+.label{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    font-size: 14px;      
+}
+.image{
+    width:12px;
+    height:12px;
+}
     .pizza-vars {
         width: 100%;
         margin-bottom: 30px;
@@ -29,4 +50,22 @@
                 color: white;
             }
         }
-    }
+}
+
+.top-disc{
+  top:-15px;
+    position:absolute;
+    
+}
+        .labels{
+            position: relative;
+            width:100px;
+            position:fixed;
+            bottom:0;
+            background-color:@bootstrap-orange;
+            color:white;
+            font-weight: 700;
+            font-size: 14px;
+            text-align:center;
+            text-transform: uppercase;
+        }

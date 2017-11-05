@@ -1,9 +1,67 @@
 .top{
-  width: 100%;
-  nav{
-    height: @heighttop;
-    color: @someColor;
-    background-color: @mainColor;
+    width: 100%;
+}
+.top-panel {
+    z-index: 9;
+    padding-right: 300px;
+    background-color: rgba(0,0,0,0.75);
+    color: @text-color;
+    font-size: @middle-text;
+    height: @panel-height;
+    opacity:60%;
+}
+.upper-header, .down-header{
+    margin-left: 140px;
+    margin-right: 20px;
+}
 
-  }
+    .upper-header{
+        padding:5px 0px;
+        border-bottom: 1px solid @text-color;
+
+        .log-in{
+            float: right;
+        }
+    }
+    .site-icon {
+
+        .discount-before img {
+            transform: scaleY(-1);
+            height: 20px;
+            width: @panel-height;
+            position: absolute;
+            left:20px;
+            top:@panel-height - 1px;
+        }
+
+        .pizza-brand {
+            @blocks-padding: @panel-height/4;
+            display: block;
+            float: left;
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: @panel-height;
+            width: @panel-height;
+            background-color: @bootstrap-orange;
+            border: 0.5px solid darken(@bootstrap-orange,12%);
+            padding: 10px;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            .text1, .text2 {
+                width: 100%;
+                display: block;
+                height: 50%;
+                font-size: @large-text;
+                color: white;
+                text-align: center;
+            }
+        }
+    }
+.phone{
+color:#53BDFA;
+text-decoration: underline;
 }
