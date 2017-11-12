@@ -1,12 +1,12 @@
 .pizza-card {
     position: relative;
   img {
-      width: 70%;
       padding: inherit;
   }
 
   h3 {
     color: @titleColor;
+      font-weight:700;
   }
   h6 {
     color: lighten(@mainColor, 50%);
@@ -16,3 +16,13 @@
         text-align:left;
     }
 }
+  .pizza-all {
+        .count-tile{
+            margin:auto;
+            text-align: center;
+        }
+        .pizza-count {
+            font-size: @middle-text;
+            background-color: @bootstrap-orange;
+        }
+    }
