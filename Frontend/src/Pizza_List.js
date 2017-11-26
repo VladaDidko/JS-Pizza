@@ -21,7 +21,7 @@ var pizza_info = [
             price: 99
         },
         big_size:{
-            weight: 660,
+            weight: 650,
             size: 40,
             price: 169
         },
@@ -38,7 +38,7 @@ var pizza_info = [
             meat: ['мисливські ковбаски', 'ковбаски папероні', 'шинка'],
             cheese: ['сир домашній'],
             mushroom: ['шампінйони'],
-            additional: ['петрушка', 'оливки']
+            additional: ['петрушка']
         },
         small_size:{
             weight: 460,
@@ -97,7 +97,7 @@ var pizza_info = [
         }
     },
     {
-        id:17,
+        id:5,
         icon:'assets/images/pizza_3.jpg',
         title: "Маргарита",
         type: 'Вега піца',
@@ -110,10 +110,11 @@ var pizza_info = [
             weight: 370,
             size: 30,
             price: 89
-        }
+        },
+
     },
     {
-        id:43,
+        id:6,
         icon:'assets/images/pizza_6.jpg',
         title: "Мікс смаків",
         type: 'М’ясна піца',
@@ -136,14 +137,13 @@ var pizza_info = [
         }
     },
     {
-        id:90,
+        id:7,
         icon:'assets/images/pizza_8.jpg',
         title: "Дольче Маре",
         type: 'Морська піца',
         content: {
             ocean: ['криветки тигрові', 'мідії', 'ікра червона', 'філе червоної риби'],
-            cheese: ['сир моцарелла'],
-            additional: ['оливкова олія', 'вершки']
+            cheese: ['сир моцарелла']
         },
         big_size:{
             weight: 845,
@@ -152,7 +152,7 @@ var pizza_info = [
         }
     },
     {
-        id:6,
+        id:8,
         icon:'assets/images/pizza_4.jpg',
         title: "Россо Густо",
         type: 'Морська піца',
@@ -171,7 +171,27 @@ var pizza_info = [
             size: 40,
             price: 299
         }
+    },
+    {
+        id:9,
+        icon:'assets/images/pizza_9.jpg',
+        title: "Салямі",
+        type: 'М’ясна піца',
+        content: {
+            meat: ['салямі', 'бекон'],
+            cheese: ['сир домашній'],
+            additional: ['базилік', 'соус гірчичний']
+        },
+        small_size:{
+            weight: 470,
+            size: 30,
+            price: 125
+        },
+        big_size:{
+            weight: 780,
+            size: 40,
+            price: 190
+        }
     }
 ];
-
 module.exports = pizza_info;

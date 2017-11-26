@@ -22,7 +22,7 @@ var pizza_info = [
             price: 99
         },
         big_size:{
-            weight: 660,
+            weight: 650,
             size: 40,
             price: 169
         },
@@ -39,7 +39,7 @@ var pizza_info = [
             meat: ['мисливські ковбаски', 'ковбаски папероні', 'шинка'],
             cheese: ['сир домашній'],
             mushroom: ['шампінйони'],
-            additional: ['петрушка', 'оливки']
+            additional: ['петрушка']
         },
         small_size:{
             weight: 460,
@@ -98,7 +98,7 @@ var pizza_info = [
         }
     },
     {
-        id:17,
+        id:5,
         icon:'assets/images/pizza_3.jpg',
         title: "Маргарита",
         type: 'Вега піца',
@@ -111,10 +111,11 @@ var pizza_info = [
             weight: 370,
             size: 30,
             price: 89
-        }
+        },
+
     },
     {
-        id:43,
+        id:6,
         icon:'assets/images/pizza_6.jpg',
         title: "Мікс смаків",
         type: 'М’ясна піца',
@@ -137,14 +138,13 @@ var pizza_info = [
         }
     },
     {
-        id:90,
+        id:7,
         icon:'assets/images/pizza_8.jpg',
         title: "Дольче Маре",
         type: 'Морська піца',
         content: {
             ocean: ['криветки тигрові', 'мідії', 'ікра червона', 'філе червоної риби'],
-            cheese: ['сир моцарелла'],
-            additional: ['оливкова олія', 'вершки']
+            cheese: ['сир моцарелла']
         },
         big_size:{
             weight: 845,
@@ -153,7 +153,7 @@ var pizza_info = [
         }
     },
     {
-        id:6,
+        id:8,
         icon:'assets/images/pizza_4.jpg',
         title: "Россо Густо",
         type: 'Морська піца',
@@ -172,11 +172,32 @@ var pizza_info = [
             size: 40,
             price: 299
         }
+    },
+    {
+        id:9,
+        icon:'assets/images/pizza_9.jpg',
+        title: "Салямі",
+        type: 'М’ясна піца',
+        content: {
+            meat: ['салямі', 'бекон'],
+            cheese: ['сир домашній'],
+            additional: ['базилік', 'соус гірчичний']
+        },
+        small_size:{
+            weight: 470,
+            size: 30,
+            price: 125
+        },
+        big_size:{
+            weight: 780,
+            size: 40,
+            price: 190
+        }
     }
 ];
 
 module.exports = pizza_info;
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 /**
  * Created by chaika on 02.02.16.
  */
@@ -218,39 +239,88 @@ var PizzaSize = {
 
 //Змінна в якій зберігаються перелік піц в кошику
 var Cart = [];
+    var num = 0;
+    var sum = 0;
+    var define_price = [];
 
 //HTML едемент куди будуть додаватися піци
 var $cart = $("#cart");
+var $platform = $("#platform");
 
 function addToCart(pizza, size) {
-    //Додавання однієї піци в кошик покупок
+    num++;
+    var j =0;
+    var check = true;
 
     //Приклад реалізації, можна робити будь-яким іншим способом
-    Cart.push({
-        pizza: pizza,
-        size: size,
-        quantity: 1
-    });
+    for(var i=0; i<Cart.length; ){
+        if(Cart[i].pizza.title === pizza.title && Cart[i].size === size){
+            j = i;
+            check = false;
+            break;
+        }else{
+            check = true;
+        }
+        i++;
+    }
+    console.log(check + "\n"+  pizza.title + "\n" + size);
+
+    if(check == false){
+        var st = (Cart[j].size === "small_size") ? true : false;
+        if(st == true){
+            Cart[j].pizza.small_size.price = Cart[j].pizza.small_size.price + define_price[j];
+        }else{
+            Cart[j].pizza.big_size.price = Cart[j].pizza.big_size.price + define_price[j];
+        }
+        sum = sum + define_price[j] ;
+        Cart[j].quantity = Cart[j].quantity + 1;
+        console.log(define_price[j]);
+    }
+    if(check == true){
+        Cart.push({
+            pizza: pizza,
+            size: size,
+            quantity: 1
+        });
+        define_price.push(pizza[size].price);
+        sum = sum + pizza[size].price;
+
+    }
 
     //Оновити вміст кошика на сторінці
     updateCart();
 }
 
-function removeFromCart(cart_item) {
-    //Видалити піцу з кошика
-    //TODO: треба зробити
-
-    //Після видалення оновити відображення
-    updateCart();
-}
+    function removeFromCart(cart_item) {
+        //Видалити піцу з кошика
+        var a = Cart.indexOf(cart_item);
+        define_price.splice(a, 1);
+        Cart.splice(a, 1);
+        //Після видалення оновити відображення
+        updateCart();
+    }
 
 function initialiseCart() {
-    //Фукнція віпрацьвуватиме при завантаженні сторінки
-    //Тут можна наприклад, зчитати вміст корзини який збережено в Local Storage то показати його
-    //TODO: ...
+    var c = localStorage.getItem("cart");
+    var p = localStorage.getItem("price");
+    var q = localStorage.getItem("num");
+    var s = localStorage.getItem("sum");
 
+    var inN = localStorage.getItem("inName");
+    var inP = localStorage.getItem("inPhone");
+    var inA = localStorage.getItem("inAdress");
+    console.log(inN);
+    console.log(inP);
+    console.log(inP);
+    if(localStorage.getItem("cart") != undefined){
+        Cart = JSON.parse(c);
+        def_price = JSON.parse(p);
+        quan = parseInt(q);
+        sum = parseInt(s);
+    }
     updateCart();
 }
+
 
 function getPizzaInCart() {
     //Повертає піци які зберігаються в кошику
