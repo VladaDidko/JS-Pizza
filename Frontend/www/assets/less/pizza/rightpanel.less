@@ -1,20 +1,30 @@
+@bgcolor:whitesmoke;
+@secondary-color: #e5e5e5;
 .rightpanel {
-    @bgcolor:whitesmoke;
-    @secondary-color: #e5e5e5;
-
+    background-color: @bgcolor;
+    padding: 0;
     position: fixed;
     z-index:10;
     margin: 0px;
-    top: 0;
+    top:0;
     right: 0;
-    bottom: 0;
-    background-color: @bgcolor;
+    height: 100%;
+    box-shadow: -3px 3px 10px rgba(0,0,0,0.2);
     min-height: 175px;
+    min-width: 290px;
 }
  
 .title{
         width: 100%;
         height: 10%;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.4285;
+    border-radius: 15px;
 }
 
 
@@ -26,34 +36,89 @@ color: white;
 .inside{
     box-sizing: border-box;
     width:100%;
-    height:100%;
+   background-color: @bgcolor;
     
     .row-one{
-        height:15%;
         width: 100%;
+        padding: 20px;
+        background-color: #fff;
         box-sizing: content-box;
-    }
-    .orders-title{
-        font-size:@small-text*2;
-    }
-    .clearorders{
-        font-size:@small-text*1.2;
-        float:right;
-        margin-top: 5px;
+        position: relative;
+            .orders-title{
+                font-size:@small-text*2;
+            }
+            .clear-order{
+                font-size:@small-text*1.2;
+                float:right;
+                margin-top: 5px;
+                margin-right: 30px;
+            }
     }
     
     .row-two{
-        height:70%;
-        text-align: center;
-        padding-top:50px;
+        position: relative;
+        padding: 0 0 100px 0;
+        margin-top:15px;
+        max-height: 90vh;
+        overflow-y: auto;
         color:#4e4e4e;
+        width: 100%;
+        .order-item{
+            padding: 5px 30px 10px 10px;
+            border-bottom: 1px solid rgba(0,0,0,.1);
+            position: relative;
+            overflow-x: hidden;
+            .order-img{
+                position: absolute;
+                right: -48px;
+                top: 0px;
+                border-radius: 50% 0 0 50%;
+                max-height: 96px;
+                max-width: 96px;
+            }
+            .order-title{
+                font-size: 20px;
+                line-height: 16px;
+                color: #ec890e;
+            }
+            .caption{
+                .order-item-info{
+                    padding: 10px 0px 0px 0px;
+                }
+                .order-item-price{
+                    padding: 10px 0px;
+                    font-size: 17px;
+                    font-weight: 600;
+                    line-height: 20px;
+                    a{
+                        margin:0px 5px;
+                    }
+                }
+            }
+        }
+        .no-order{
+            padding: 10px;
+        }
     }
     .row-three{
-        height:15%;
-
-}
+        height: 100px;
+        padding: 20px;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid rgba(0,0,0,.1);
+        position: absolute;
+        bottom: 10px;
+        .order-total-price{
+            padding-bottom: 10px;
+            padding-right: 20px;
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 20px;
+            
+            .total-price{
+                float: right;
+            }
+        }
+    }
     
 }
-
-
-    

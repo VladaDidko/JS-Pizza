@@ -5,6 +5,48 @@ var Templates = require('../Templates');
 var PizzaCart = require('./PizzaCart');
 var Pizza_List = require('../Pizza_List');
 
+var $all = $("#all");
+var $type = $("#type");
+
+var quantity = $("#quantity");
+var q = 0;
+
+$all.click(function(){
+	filterPizza('cheese');
+	$type.text("Усі піци");
+});
+
+$('#meat').click(function(){
+	filterPizza('meat');
+	$type.text("З м'ясом");
+});
+$('#pineapple').click(function(){
+	filterPizza('pineapple');
+	$type.text("З ананасами");
+});
+$('#mushroom').click(function(){
+	filterPizza('mushroom');
+	$type.text("З грибами");
+});
+$('#ocean').click(function(){
+	filterPizza('ocean');
+	$type.text("З морепродуктами");
+});
+$('#vegan').click(function(){
+	filterPizza('tomato');
+	$type.text("Вегетеріанські");
+});
+
+$('.nav li').click(function() {
+
+	$('.nav li').removeClass('active');
+
+	var $this = $(this);
+	if (!$this.hasClass('active')) {
+		$this.addClass('active');
+	}
+});
+
 //HTML едемент куди будуть додаватися піци
 var $pizza_list = $("#pizza_list");
 
@@ -19,10 +61,12 @@ function showPizzaList(list) {
         var $node = $(html_code);
 
         $node.find(".buy-big").click(function(){
-            PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Big);
+            PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Big, pizza.big_size.price);
+            return false;
         });
         $node.find(".buy-small").click(function(){
-            PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Small);
+            PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Small, pizza.small_size.price);
+            return false;
         });
 
         $pizza_list.append($node);
@@ -38,12 +82,17 @@ function filterPizza(filter) {
     Pizza_List.forEach(function(pizza){
         //Якщо піка відповідає фільтру
         //pizza_shown.push(pizza);
-
+        if(filter in pizza.content){
+            pizza_shown.push(pizza);
+            q++;
+        }
         //TODO: зробити фільтри
     });
-
+    quantity.text(q);
+    q=0;
     //Показати відфільтровані піци
     showPizzaList(pizza_shown);
+    
 }
 
 function initialiseMenu() {
