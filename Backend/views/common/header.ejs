@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><%= pageTitle %> - Pizza</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <% if(pageTitle === 'Оформлення замовлення') { %>
+        <!-- Page ORDER Styles needed-->
+        <link rel="stylesheet/less" type="text/css" href="assets/less/order/order.less" />
+    <% } %>
+    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+</head>\
+
+<body>
+<div class="container-fluid">
+    
+    <div class="row">
+        <!-- TOP NAVBAR START-->
+        <nav class="navbar navbar-inverse navbar-fixed-top top-panel">
+            <div class="col-xs-8 col-md-8 col-lg-9">
+                <div class="site-icon">
+                    <a class="pizza-brand" href="/index.html">
+                        <div id="pizza-title2" class="text1">Pizza</div>
+                        <div class="text2">KMA</div>
+                    </a>
+                    <div class="discount-before top-discount">
+                        <img src="assets/images/discount.svg">
+                    </div>
+                </div>
+                <div class="upper-header">
+                    <div class="top-text-left phone visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">(044) 444 - 444 - 44</div>
+                    <div class="top-text-left worktime visible-md-inline-block visible-lg-inline-block" style="font-size:10px">24 години/ 7 днів на тиждень</div>
+                    <div class="top-text-left delivery visible-lg-inline-block" style="font-size:14px">Безкоштовна доставка піци</div>
+                    <div type="button" class="top-text-right btn btn-sm btn-warning log-in">Ввійти</div>
+                </div>
+                <div class="down-header">
+                    <div class="top-text-left visible-sm-inline-block visible-md-inline-block visible-lg-inline-block " type="button" style="color:white">Піца</div>
+                </div>
+            </div>
+        </nav>
+        <!-- TOP NAVBAR  END-->

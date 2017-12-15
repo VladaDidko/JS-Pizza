@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Pizza</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Page ORDER Styles needed-->
+    <link rel="stylesheet/less" type="text/css" href="assets/less/order/order.less" />
+    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+    
+    <div class="row">
+        <!-- TOP NAVBAR START-->
+        <nav class="navbar navbar-inverse navbar-fixed-top top-panel">
+            <div class="col-xs-8 col-md-8 col-lg-9">
+                <div class="site-icon">
+                    <a class="pizza-brand" href="/index.html">
+                        <div id="pizza-title2" class="text1">Pizza</div>
+                        <div class="text2">KMA</div>
+                    </a>
+                    <div class="discount-before top-discount">
+                        <img src="assets/images/discount.svg">
+                    </div>
+                </div>
+                <div class="upper-header">
+                    <div class="top-text-left phone visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">(044) 444 - 444 - 44</div>
+                    <div class="top-text-left worktime visible-md-inline-block visible-lg-inline-block" style="font-size:10px">24 години/ 7 днів на тиждень</div>
+                    <div class="top-text-left delivery visible-lg-inline-block" style="font-size:14px">Безкоштовна доставка піци</div>
+                    <div type="button" class="top-text-right btn btn-sm btn-warning log-in">Ввійти</div>
+                </div>
+                <div class="down-header">
+                    <div class="top-text-left visible-sm-inline-block visible-md-inline-block visible-lg-inline-block " type="button" style="color:white">Піца</div>
+                </div>
+            </div>
+        </nav>
+        <!-- TOP NAVBAR  END-->
+        <!-- MAIN CONTENT START-->
+        <div class="col-xs-8 col-md-8 col-lg-9 leftpanel">
+            <div class="contact-info">
+                <div class="contact-header">
+                    <h4>1. Контактні дані</h4>
+                </div> 
+                            
+                <div class="row container">
+                    <!-- Contact info-->
+                    <div class="col-md-7">
+                        <form class="form-horizontal name-group" id="order-register" novalidate="novalidate">
+                            <div class="form-group row" id="rules">
+                                <label for="nameContact" class="col-sm-2 control-label">Ім’я</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="nameContact" id="nameContact" placeholder="Ім’я Прізвище">
+                                </div>
+                                <span id="hide">
+                                    Введіть тільки власне ім’я, без цифр
+                                </span>
+                            </div>
+
+                            <div class="form-group phone-group" id="rules">
+                                <label for="phoneContact" class="col-sm-2 control-label">Телефон</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control" type="tel" name="phoneContact" id="phoneContact" placeholder="+380994010999"> 
+                                </div>
+                                <span id="hide">
+                                    Введіть номер телефону у форматі +380 або почніть з 0
+                                </span>
+                            </div>
+
+                            <div class="form-group address-group" id="rules">
+                                <label for="addressContact" class="col-sm-2 control-label">Адреса</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="addressContact" id="addressContact" placeholder="в. М.Цвєваєвой, 14-б">
+                                </div>
+                                <span id="hide">
+                                    Введіть адресу доставки піци
+                                </span>
+                            </div>
+                        </form>
+    				</div>
+                    <!-- Info Order-->
+                    <div class="col-md-5 order-info-block">
+                        <div class="order-info">
+                            <h4>Інформація про замовлення</h4>
+                            <p class="order-summery-time">
+								<b>Приблизний час доставки:</b> <b id="sumtime">--:-- хв</b>
+                            </p>
+                            <p class="order-summery-adress">
+								<b>Адреса доставки:</b><b id="sumadress"> невідома</b>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<button id="create-order" class="post-btn btn btn-warning btn-md" type="button">Далі</button>
+        </div>
+        <!-- MAIN CONTENT END-->
+        
+        <!-- ORDER CONTENT START-->
+        <div class="col-xs-4 col-md-4 col-lg-3 rightpanel">
+             <div class="inside">
+                 <div class="row-one">
+                     <span class="orders-title">
+                         Замовлення
+                         <span id="order-item-count" class="badge orange pizza-count">0</span>
+                     </span>
+                 </div>
+                 
+                 <div id="cart" class="row-two">
+                     <div class="no-order">
+                         <h4 class="small">Пусто в холодильнику?</h4>
+                         <h4 class="small">Замовте піцу!</h4>
+                     </div>
+                 </div>
+                 
+                 <div class="row-three">
+                     <div class="order-total-price">
+                         <span class="">Сума замовлення</span>
+                         <span class="total-price">0 грн.</span><span>грн.</span>
+                     </div>
+                     <a href="index.html" class="btn btn-default btn-lg btn-block submit">Редагувати замовлення</a>
+                 </div>
+            </div>
+        </div>
+        <!-- ORDER CONTENT END-->
+    </div>
+    
+    <!-- LABELS START-->
+    <div class="labels">
+        <div class="discount-before top-disc">
+            <img src="assets/images/discount.svg" />
+        </div>
+        <div class="label-first labels-style">
+            <div class="label-top">
+                Цього<br>тижня<br> на все
+            </div>
+            <div class="label-discount"> -20%</div>
+        </div>
+    </div>
+    <!-- LABELS END-->
+    
+</div>
+    
+<!-- jQuery JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+
+<!--Bootsrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+<!-- Validator-->
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+    
+<script type="text/javascript" src="assets/js/jquery.validate.js"></script>  
+<script type="text/javascript" src="assets/js/validate.js"></script>  
+
+<!--Own JavaScript -->
+<script type="text/javascript"  src="assets/js/main.js"> </script>
+    
+<!-- Google Maps API -->
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBZS_alpeMWeQdOhGOY5M3biqG2jkjg-w4"></script>
+ 
+<!-- Autocmplete address -->
+<script type="text/javascript" src="assets/js/autocomplete.js"></script>   
+
+</body>
+</html>

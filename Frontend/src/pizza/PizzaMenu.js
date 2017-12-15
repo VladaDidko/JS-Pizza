@@ -4,6 +4,7 @@
 var Templates = require('../Templates');
 var PizzaCart = require('./PizzaCart');
 var Pizza_List = require('../Pizza_List');
+var API = require('../API');
 
 var $all = $("#all");
 var $type = $("#type");
@@ -97,7 +98,16 @@ function filterPizza(filter) {
 
 function initialiseMenu() {
     //Показуємо усі піци
-    showPizzaList(Pizza_List)
+    API.getPizzaList(function(err, data){
+		if(err){
+			Pizza_List = [];
+		}
+		else{
+			Pizza_List = data;
+			console.log("Pizza_List = ", data);
+		}
+		showPizzaList(Pizza_List);
+	});
 }
 
 exports.filterPizza = filterPizza;

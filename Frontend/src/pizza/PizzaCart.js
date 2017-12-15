@@ -2,6 +2,7 @@
  * Created by chaika on 02.02.16.
  */
 var Templates = require('../Templates');
+var API = require('../API');
 //Перелік розмірів піци
 var PizzaSize = {
     Big: "big_size",
@@ -131,6 +132,19 @@ function updateCart() {
     Cart.forEach(calculateTotalPrice);
     $total.text(totalPrice);
 }
+
+$("#create-order").click(function(){
+    var order = {
+        name: $("#nameContact").val(),
+        phone: $("#phoneContact").val(),
+        address: $("#addressContact").val(),
+        pizzas: Cart
+    };
+
+    API.createOrder(order,function(){
+        console.log("Data sent.");
+    });
+});
 
 exports.removeFromCart = removeFromCart;
 exports.addToCart = addToCart;
